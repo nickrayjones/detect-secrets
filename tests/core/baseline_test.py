@@ -33,12 +33,14 @@ class TestInitializeBaseline:
         path=['./test_data/files'],
         exclude_files_regex=None,
         scan_all_files=False,
+        diff_branch=None,
     ):
         return baseline.initialize(
             path,
             self.plugins,
             exclude_files_regex=exclude_files_regex,
             should_scan_all_files=scan_all_files,
+            diff_branch=diff_branch,
         ).json()
 
     @pytest.mark.parametrize(
@@ -184,6 +186,14 @@ class TestInitializeBaseline:
             )
         assert len(results.keys()) == 0
 
+    def test_diff_branch(self):
+        results = self.get_results(diff_branch="staging")
+
+        # No expected results, because differences
+        assert not results
+
+    # more tests for diff-branch are difficult to concieve
+    # maybe a new branch which introduces secrets?
 
 class TestGetSecretsNotInBaseline:
 
