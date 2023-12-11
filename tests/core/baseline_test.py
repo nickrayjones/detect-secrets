@@ -22,7 +22,7 @@ from testing.mocks import SubprocessMock
 
 class TestInitializeBaseline:
 
-    def setup(self):
+    def setup_method(self):
         self.plugins = (
             Base64HighEntropyString(4.5),
             HexHighEntropyString(3),
