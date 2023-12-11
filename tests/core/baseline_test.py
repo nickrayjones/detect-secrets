@@ -186,7 +186,7 @@ class TestInitializeBaseline:
             )
         assert len(results.keys()) == 0
 
-    def test_diff_branch(self):
+    def test_diff_branch_nodiff(self):
         results = self.get_results(diff_branch="staging")
 
         # No expected results, because differences
@@ -194,6 +194,12 @@ class TestInitializeBaseline:
 
     # more tests for diff-branch are difficult to concieve
     # maybe a new branch which introduces secrets?
+
+    def test_diff_branch_nodiff(self):
+        results = self.get_results(diff_branch="errors2")
+
+        assert len(results['test_data/files/tmp/file_with_secrets.py']) == 3
+
 
 class TestGetSecretsNotInBaseline:
 
