@@ -187,13 +187,10 @@ class TestInitializeBaseline:
         assert len(results.keys()) == 0
 
     def test_diff_branch(self):
-        results = self.get_results(diff_branch="staging")
+        results = self.get_results(diff_branch="more_errors")
 
         # No expected results, because differences
         assert not results
-
-    # more tests for diff-branch are difficult to concieve
-    # maybe a new branch which introduces secrets?
 
 class TestGetSecretsNotInBaseline:
 
