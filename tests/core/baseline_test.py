@@ -197,7 +197,7 @@ class TestInitializeBaseline:
             'detect_secrets.core.baseline.subprocess.check_output',
             (
                 SubprocessMock(
-                    expected_input='git checkout more_errors',
+                    expected_input='git -C test_data/files diff --name-only --diff-filter=ACMRTUX origin/master',
                     should_throw_exception=True,
                     mocked_output='',
                 ),
