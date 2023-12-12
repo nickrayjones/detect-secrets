@@ -187,13 +187,13 @@ class TestInitializeBaseline:
         assert len(results.keys()) == 0
 
     def test_diff_branch_nodiff(self):
-        results = self.get_results(diff_branch="staging")
+        results = self.get_results(path=['test_data/files'],diff_branch="staging")
 
         # No expected results, because differences
         assert not results
 
     def test_diff_branch_diff(self):
-        results = self.get_results(diff_branch="more_errors")
+        results = self.get_results(path=['test_data/files'],diff_branch="more_errors")
 
         assert len(results['test_data/files/tmp/file_with_secrets.py']) == 3
 
