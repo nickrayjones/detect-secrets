@@ -193,8 +193,19 @@ class TestInitializeBaseline:
         assert not results
 
     def test_diff_branch_diff(self):
-        results = self.get_results(path=['test_data/files'],diff_branch="more_errors")
+        with mock_git_calls(
+            'detect_secrets.core.baseline.subprocess.check_output',
+            (
+                SubprocessMock(
+                    expected_input='git checkout more_errors',
+                    should_throw_exception=True,
+                    mocked_output='',
+                ),
+            ),
+        ):
+            results = self.get_results(path=['test_data/files'],diff_branch="origin/master")
 
+        assert not results
         assert len(results['test_data/files/tmp/file_with_secrets.py']) == 3
 
 
