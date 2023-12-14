@@ -414,18 +414,16 @@ def _get_git_tracked_diff_files(rootdir='.',diff_branch=None):
             git_files = subprocess.check_output(
                 [
                     'git',
-                    '-C', rootdir,
                     'diff',
                     '--name-only',
                     '--diff-filter=ACMRTUX',
                     diff_branch,
+                    '--', rootdir,
                 ],
                 stderr=fnull,
             )
         for filename in git_files.decode('utf-8').split():
-            relative_path = util.get_relative_path_if_in_cwd(rootdir, filename)
-            if relative_path:
-                output.append(relative_path)
+            output.append(filename)
     except subprocess.CalledProcessError:
         pass
     return output
