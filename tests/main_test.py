@@ -225,7 +225,7 @@ class TestMain:
 
     def test_scan_with_diff_branch(self, mock_baseline_initialize):
         with mock_stdin():
-            assert main('scan --diff-branch staging'.split()) == 0
+            assert main('scan --diff-branch some_branch_here'.split()) == 0
 
         mock_baseline_initialize.assert_called_once_with(
             plugins=Any(tuple),
@@ -238,7 +238,7 @@ class TestMain:
             word_list_file=None,
             word_list_hash=None,
             suppress_unscannable_file_warnings=False,
-            diff_branch='staging',
+            diff_branch='some_branch_here',
         )
 
     def test_reads_from_stdin(self, mock_merge_baseline):
