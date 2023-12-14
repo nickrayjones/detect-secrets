@@ -405,7 +405,7 @@ def _get_git_tracked_diff_files(rootdir='.',diff_branch=None):
     branch and the remote main branch.
 
     :rtype: set|None
-    :returns: filepaths to files with differences frm the diff_branch
+    :returns: filepaths to files with differences from the diff_branch
     which git currently tracks (locally)
     """
     output = []
