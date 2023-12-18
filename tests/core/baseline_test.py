@@ -187,7 +187,7 @@ class TestInitializeBaseline:
         assert len(results.keys()) == 0
 
     def test_diff_branch_nodiff(self):
-        results = self.get_results(path=['./test_data/files'], diff_branch="origin/master")
+        results = self.get_results(path=['./test_data/files'], diff_branch='origin/master')
 
         # No expected results, because differences
         assert not results
@@ -203,7 +203,7 @@ class TestInitializeBaseline:
                 ),
             ),
         ):
-            results = self.get_results(path=['./test_data/files'], diff_branch="origin/master")
+            results = self.get_results(path=['./test_data/files'], diff_branch='origin/master')
         assert len(results.keys()) == 1
         assert len(results['test_data/files/file_with_secrets.py']) == 1
 
@@ -219,7 +219,7 @@ class TestInitializeBaseline:
                 ),
             ),
         ):
-            results = self.get_results(path=['./test_data/files'], diff_branch="origin/master")
+            results = self.get_results(path=['./test_data/files'], diff_branch='origin/master')
         assert len(results.keys()) == 2
         assert len(results['test_data/files/file_with_secrets.py']) == 1
         assert len(results['test_data/files/tmp/file_with_secrets.py']) == 2
