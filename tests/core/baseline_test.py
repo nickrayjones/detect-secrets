@@ -197,7 +197,7 @@ class TestInitializeBaseline:
             'detect_secrets.core.baseline.subprocess.check_output',
             (
                 SubprocessMock(
-                    expected_input='git diff --name-only --diff-filter=ACMRTUX'
+                    expected_input='git diff --name-only --diff-filter=ACMRTUX '
                     + 'origin/master -- ./test_data/files',
                     mocked_output=b'test_data/files/file_with_secrets.py\n',
                 ),
@@ -212,7 +212,7 @@ class TestInitializeBaseline:
             'detect_secrets.core.baseline.subprocess.check_output',
             (
                 SubprocessMock(
-                    expected_input='git diff --name-only --diff-filter=ACMRTUX'
+                    expected_input='git diff --name-only --diff-filter=ACMRTUX '
                     + 'origin/master -- ./test_data/files',
                     mocked_output=b'test_data/files/file_with_secrets.py\n'
                     + 'test_data/files/tmp/file_with_secrets.py\n',
