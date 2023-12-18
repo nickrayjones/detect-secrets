@@ -295,7 +295,8 @@ class ScanOptions:
             '--diff-branch',
             type=str,
             help=(
-                'Scan only files that are tracked to git containing differences from the named branch.',
+                'Scan only files that are tracked to git containing '
+                'differences from the named branch.'
             ),
             dest='diff_branch',
         )

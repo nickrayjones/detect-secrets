@@ -51,7 +51,8 @@ def initialize(
     :param suppress_unscannable_file_warnings: whether or not to suppress unscannable file warnings
 
     :type diff_branch: str|None
-    :param diff_branch: optional name of branch to check for differences against in determining files to scan.
+    :param diff_branch: optional name of branch to check for
+    differences against in determining files to scan.
 
     :rtype: SecretsCollection
     """
@@ -72,9 +73,9 @@ def initialize(
                 files_to_scan.extend(
                     _get_files_recursively(element),
                 )
-            elif diff_branch != None:
+            elif diff_branch is not None:
                 files_to_scan.extend(
-                    _get_git_tracked_diff_files(element,diff_branch),
+                    _get_git_tracked_diff_files(element, diff_branch),
                 )
             else:
                 files_to_scan.extend(
@@ -388,7 +389,7 @@ def _get_git_tracked_files(rootdir='.'):
     return output
 
 
-def _get_git_tracked_diff_files(rootdir='.',diff_branch=None):
+def _get_git_tracked_diff_files(rootdir='.', diff_branch=None):
     """On incremental builds it is only necessary to scan the files that
     have changed.  This will allow a scan of files that have differences
     from the named branch. The filter does not list filess that are

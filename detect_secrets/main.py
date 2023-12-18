@@ -207,7 +207,8 @@ def _get_existing_baseline(import_filename):
         try:
             return _read_from_file(import_filename[0])
         except FileNotFoundError as fnf_error:
-            if fnf_error.errno == 2 or fnf_error.errno == 129: # create new baseline if not existed, 129 is for z/OS
+            if fnf_error.errno == 2 or fnf_error.errno == 129:
+                # create new baseline if not existed, 129 is for z/OS
                 return None
             else:  # throw exception for other cases
                 print(
