@@ -51,3 +51,4 @@ repos:
                     --use-all-plugins,
                     --fail-on-unaudited,
                 ]
+            additional_dependencies: [boxsdk<4]
