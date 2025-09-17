@@ -26,7 +26,7 @@ setup(
         'pyyaml',
         'requests',
         'urllib3<2.0.0',
-        'boxsdk[jwt]',
+        'boxsdk[jwt]<4.0.0',
         'packaging',
         'tabulate',
         'binaryornot',
