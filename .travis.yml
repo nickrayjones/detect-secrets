@@ -13,13 +13,11 @@ deploy:
       on:
           all_branches: true
           # only build docker image and push once
-          condition: $TOXENV = py38
+          condition: $TOXENV = py39
           # only deploy when pushing to gh repo
           repo: IBM/detect-secrets
 matrix:
     include:
-        - env: TOXENV=py38
-          python: 3.8.18
         - env: TOXENV=py39
           python: 3.9.18
 before_install:
