@@ -24,3 +24,5 @@ cosign.key
 
 # OSX
 .DS_Store
+
+/build
