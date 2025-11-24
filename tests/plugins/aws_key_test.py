@@ -16,7 +16,7 @@ EXAMPLE_SECRET = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
 
 class TestAWSKeyDetector(object):
 
-    def setup(self):
+    def setup_method(self):
         self.example_key = 'AKIAZZZZZZZZZZZZZZZZ'
 
     @pytest.mark.parametrize(

@@ -40,7 +40,7 @@ class TestFromPluginClassname:
 
 class TestFromSecretType:
 
-    def setup(self):
+    def setup_method(self):
         self.settings = [
             {
                 'name': 'Base64HighEntropyString',

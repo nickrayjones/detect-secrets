@@ -269,7 +269,7 @@ class TestBaselineInputOutput:
     related to that ability.
     """
 
-    def setup(self):
+    def setup_method(self):
         self.logic = secrets_collection_factory(
             secrets=[
                 {

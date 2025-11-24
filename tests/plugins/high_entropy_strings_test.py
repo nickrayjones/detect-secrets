@@ -140,7 +140,7 @@ class HighEntropyStringsTest:
 
 class TestRegularBase64HighEntropyStrings(HighEntropyStringsTest):
 
-    def setup(self):
+    def setup_method(self):
         super(TestRegularBase64HighEntropyStrings, self).setup(
             # Testing default limit, as suggested by truffleHog.
             logic=Base64HighEntropyString(
@@ -238,7 +238,7 @@ class TestRegularBase64HighEntropyStrings(HighEntropyStringsTest):
 
 
 class TestUrlSafeBase64HighEntropyStrings(HighEntropyStringsTest):
-    def setup(self):
+    def setup_method(self):
         super(TestUrlSafeBase64HighEntropyStrings, self).setup(
             # Testing default limit, as suggested by truffleHog.
             logic=Base64HighEntropyString(
@@ -267,7 +267,7 @@ class HexHighEntropyStringsWithStandardEntropy(HexHighEntropyString):
 
 class TestHexHighEntropyStrings(HighEntropyStringsTest):
 
-    def setup(self):
+    def setup_method(self):
         super(TestHexHighEntropyStrings, self).setup(
             # Testing default limit, as suggested by truffleHog.
             logic=HexHighEntropyString(
